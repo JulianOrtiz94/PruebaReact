@@ -5,25 +5,33 @@ import './media.css'
 class Media extends React.Component {
   // constructor(props) {
   //   super(props)
-  //   this.handleClick = this.handleClick.bind(this)
+  // //   this.handleClick = this.handleClick.bind(this)
+  //   this.state = {
+  //     author : props.author
+  //   }
   // }
-
+  state = {
+    author: 'Julian Ortiz'
+  }
   handleClick = (event) => {
-    console.log(this.props.title);
+    // console.log(this.props.title)
+    this.setState({
+      author: 'Daniel Ortiz'
+    })
   }
 
   render() {
-    const { title, author , image } = this.props 
+    
     return (
       <div className="Media" onClick={this.handleClick}>
         <div className="Media-cover">
           <img className="Media-image"
-            src={image} 
+            src={this.props.image} 
             alt="" 
             width={260}
             height={160} />
-          <h3 className="Media-title">{title}</h3>
-          <p className="Media-author">{author}</p>
+          <h3 className="Media-title">{this.props.title}</h3>
+          <p className="Media-author">{this.state.author}</p>
         </div>
       </div>
     )
